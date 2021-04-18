@@ -1,0 +1,69 @@
+
+.mapdiv{
+    width: 70%;
+    float: left;
+    position: relative;
+    height: 650px;
+}
+
+
+
+ul{
+    list-style: none;
+    padding-left: 0px;
+}
+ul li{
+    display: inline-block;
+    margin: auto 5px;
+    padding: 10px 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+ul li:hover{
+    background-color: #ccdbe5;
+}
+
+ul li.highlited{
+    background-color: #ccdbe5;
+}
+
+.options-div li{
+    padding: 0px 2px;
+    border: 0px;
+}
+.layers-div{
+    float: right;
+    width: 30%;
+}
+
+#base-layers{
+    list-style: none;
+    margin-top:62px;
+    border-bottom: 1px solid black;
+}
+
+.layers-div ul li{
+    display: block;
+    border: 0px;
+}
+
+.layers-div ul li div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background: lightgray;
+    margin-left: 10px;
+}
+
+.layers-div ul li div:hover{
+    background: lightskyblue;
+}
+
+.layers-div ul li div.highlited{
+    background: lightskyblue;
+}
+
+.leaflet-interactive.drawing {
+    cursor: crosshair;
+}

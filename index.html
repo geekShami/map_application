@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEAFLET MODULAR</title>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="mapdiv">
+            <ul id="button">
+
+                <li id="add-polygon">ADD POLYGON</li>
+                <li id="add-circle">ADD CIRCLE</li>
+                <li id="find-dist">DISTANCE</li>
+                <li id="add-polyline">ADD POLYLINE</li>
+                <li id="add-point">ADD POINT</li>
+
+            </ul>
+            <div class="mapcontainer" >
+
+            </div>
+        </div>
+
+        <div class="layers-div">
+            <ul id="base-layers"></ul>
+            <ul id="feature-layers"></ul>
+        </div>
+    </div>
+
+
+    <!----------------------------header part------------------------------->
+
+    <script>
+
+        let globalObj = {};
+
+        function initMaps(){
+
+            console.log('1) all scripts loaded successfully.....');
+
+            //transition from header to initialization block
+            console.log('2) proceeding to initilization.......');
+            let initObj = new initEnv();
+            initObj.init();
+            globalObj.initObj = initObj;
+
+            //transition from initialization to change basemap/layers block
+            //updateLayers.js file needed for this block
+
+            console.log('3) proceeding to update block.......');
+            let layerSwitch = new updateLayers();
+            layerSwitch.init(initObj);
+            //ul element in ehich base layer switch controls reside
+            let mapsUl = document.getElementById('base-layers');
+            layerSwitch.initGui(mapsUl)
+            globalObj.layerSwitch = layerSwitch;
+            /*********************************************************** */
+
+
+            //transition from update block GeoJSON Blcok
+            //jsonLoader.js file needed for this block
+
+            // console.log('4) proceeding to GeoJSON block.......');
+            // let jloader = new jsonLoader();
+            // jloader.init(initObj);
+            // jloader.registerJsonLayers(initObj.geoJsonLayers);
+            // globalObj.jloader = jloader;
+            // //ul element in  feature layer on off controls reside
+            // let layersUl = document.getElementById('feature-layers');
+            // jloader.initGui(layersUl)
+            /*********************************************************** */
+
+
+            //distance tool block initialization
+            //leaf
+
+            //leaflet_distanceTool.js file needed for this block
+
+            // console.log('5) proceeding to leaflet distance tool .......');
+            // let leafletDTool = new distancdTool();
+            // leafletDTool.init(initObj);
+            // globalObj.leafletDTool = leafletDTool;
+
+
+            //distance tool block initialization
+            //leaflet_shapes.js file needed for this block
+
+            // console.log('6) proceeding to leaflet shape tools .......');
+            // let lDrawing = new LeafletDrawing();
+            // lDrawing.init(initObj);
+            // globalObj.lDrawing = lDrawing;
+
+
+
+
+            //distance tool block initialization
+            //leaflet_points.js file needed for this
+
+
+            // console.log('7) proceeding to lefalet point tools .......');
+            // let lPoint = new LeafletPoint();
+            // lPoint.init(initObj);
+            // globalObj.lPoint = lPoint;
+
+
+            //distance tool block initialization
+            //google_distanceTool.js needed for this
+
+            // console.log('8) proceeding to google distance tool .......');
+            // let googleDTool = new googleDistancdTool();
+            // googleDTool.init(initObj);
+            // globalObj.googleDTool = googleDTool;
+
+
+
+            //distance tool block initialization
+            //google_shapes.js needed for this
+
+            // console.log('9) proceeding to google shape tools .......');
+            // let gDrawing = new googleDrawing();
+            // gDrawing.init(initObj);
+            // globalObj.gDrawing = gDrawing;
+
+
+            //distance tool block initialization
+            //google_points.js needed for this
+
+            // console.log('10) proceeding to google point tools .......');
+            // let gPoint = new GooglePoint();
+            // gPoint.init(initObj);
+            // gPoint.lPoint = lPoint;
+
+
+
+            //globalObj = initObj;
+        }
+
+    </script>
+
+     <script src="js/google_points.js"></script>
+    <script src="js/google_shapes.js"></script>
+    <script src="js/google_distanceTool.js"></script>
+    <script src="js/leaflet_points.js"></script>
+    <script src="js/leaflet_shapes.js"></script>
+    <script src="js/leflet_distanceTool.js"></script>
+    <script src="js/jsonLoader.js"></script>
+    <script src="js/updateLayers.js"></script> 
+    <script src="js/initialize.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="crossorigin=""></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlrga3ny7VjOeiMgJda6809e7xwRhPhPk&callback=initMaps" async></script>
+
+    <!----------------------------header part------------------------------->
+
+</body>
+</html>
